@@ -25,8 +25,18 @@ const App = () => {
   const [showEmail, setShowEmail] = useState("");
 
   const handleShowClick = () => setShowPassword(!showPassword);
-  const handleClick = () => {
+  const login = () => {
+    if (showPassword.length === 0 && showEmail.length === 0) {
+      alert("try again");
+    } else {
+      alert("empty Email and password");
+    }
+  };
+  const handleClick = (e) => {
+    e.preventDefault();
     setShowEmail(showEmail);
+    setShowPassword(showPassword);
+    login();
   };
 
   return (
@@ -97,7 +107,6 @@ const App = () => {
                 colorScheme="teal"
                 width="full"
                 onClick={handleClick}
-                
               >
                 Login
               </Button>
