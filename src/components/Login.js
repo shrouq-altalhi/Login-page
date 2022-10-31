@@ -25,18 +25,19 @@ const App = () => {
   const [showEmail, setShowEmail] = useState("");
 
   const handleShowClick = () => setShowPassword(!showPassword);
-  const login = () => {
-    if (showPassword.length === 0 && showEmail.length === 0) {
-      alert("try again");
-    } else {
-      alert("empty Email and password");
-    }
-  };
   const handleClick = (e) => {
     e.preventDefault();
-    setShowEmail(showEmail);
-    setShowPassword(showPassword);
+    setShowEmail(e.target.value);
+    setShowPassword(e.target.value);
     login();
+  };
+  const login = () => {
+    if (showPassword.length === 0 && showEmail.length === 0) {
+      alert("empty Email and password");
+    } 
+    // else {
+    //   handleClick();
+    // }
   };
 
   return (
